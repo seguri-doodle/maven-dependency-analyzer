@@ -138,8 +138,8 @@ public class DefaultProjectDependencyAnalyzerTest
         Set<Artifact> usedDeclaredArtifacts = new HashSet<>( Arrays.asList( project1, project2 ) );
 
         ProjectDependencyAnalysis expectedAnalysis =
-            new ProjectDependencyAnalysis( usedDeclaredArtifacts, new HashSet<Artifact>(), new HashSet<Artifact>(),
-                    new HashSet<Artifact>() );
+            new ProjectDependencyAnalysis( usedDeclaredArtifacts, new HashSet<>(), new HashSet<>(),
+                    new HashSet<>() );
 
         assertEquals( expectedAnalysis, actualAnalysis );
     }
@@ -161,8 +161,8 @@ public class DefaultProjectDependencyAnalyzerTest
         Set<Artifact> usedDeclaredArtifacts = Collections.singleton( project1 );
 
         ProjectDependencyAnalysis expectedAnalysis =
-            new ProjectDependencyAnalysis( usedDeclaredArtifacts, new HashSet<Artifact>(), new HashSet<Artifact>(),
-                    new HashSet<Artifact>() );
+            new ProjectDependencyAnalysis( usedDeclaredArtifacts, new HashSet<>(), new HashSet<>(),
+                    new HashSet<>() );
 
         assertEquals( expectedAnalysis, actualAnalysis );
     }
@@ -450,8 +450,8 @@ public class DefaultProjectDependencyAnalyzerTest
         Set<Artifact> unusedDeclaredArtifacts = Collections.singleton( dnsjava );
 
         ProjectDependencyAnalysis expectedAnalysis =
-            new ProjectDependencyAnalysis( new HashSet<Artifact>(), new HashSet<Artifact>(), unusedDeclaredArtifacts,
-                new HashSet<Artifact>() );
+            new ProjectDependencyAnalysis( new HashSet<>(), new HashSet<>(), unusedDeclaredArtifacts,
+                new HashSet<>() );
 
         assertEquals( expectedAnalysis, actualAnalysis );
     }
@@ -487,8 +487,8 @@ public class DefaultProjectDependencyAnalyzerTest
         if ( isJavaVersionAtLeast( JavaVersion.JAVA_9 )
              && !properties.containsKey( "maven.compiler.source" ) )
         {
-          properties.put( "maven.compiler.source", "1.7" );
-          properties.put( "maven.compiler.target", "1.7" );
+          properties.put( "maven.compiler.source", "1.8" );
+          properties.put( "maven.compiler.target", "1.8" );
         }
         
         String httpsProtocols = System.getProperty( "https.protocols" );
