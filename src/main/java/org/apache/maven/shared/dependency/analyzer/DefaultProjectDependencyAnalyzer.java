@@ -34,28 +34,31 @@ import java.util.jar.JarFile;
 
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.project.MavenProject;
-import org.codehaus.plexus.component.annotations.Component;
-import org.codehaus.plexus.component.annotations.Requirement;
+
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
 /**
  * <p>DefaultProjectDependencyAnalyzer class.</p>
  *
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
  */
-@Component( role = ProjectDependencyAnalyzer.class )
+@Named
+@Singleton
 public class DefaultProjectDependencyAnalyzer
     implements ProjectDependencyAnalyzer
 {
     /**
      * ClassAnalyzer
      */
-    @Requirement
+    @Inject
     private ClassAnalyzer classAnalyzer;
 
     /**
      * DependencyAnalyzer
      */
-    @Requirement
+    @Inject
     private DependencyAnalyzer dependencyAnalyzer;
 
     /** {@inheritDoc} */

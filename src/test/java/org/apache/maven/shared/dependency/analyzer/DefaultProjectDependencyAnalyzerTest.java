@@ -65,6 +65,8 @@ public class DefaultProjectDependencyAnalyzerTest
 
     private ProjectDependencyAnalyzer analyzer;
 
+    private RepositoryTool repositoryTool;
+
     private static File localRepo;
 
     /*
@@ -76,18 +78,18 @@ public class DefaultProjectDependencyAnalyzerTest
     {
         super.setUp();
 
-        buildTool = (BuildTool) lookup( BuildTool.ROLE );
+        buildTool = lookup( BuildTool.class );
 
-        projectTool = (ProjectTool) lookup( ProjectTool.ROLE );
+        projectTool = lookup( ProjectTool.class );
 
         if ( localRepo == null )
         {
-            RepositoryTool repositoryTool = (RepositoryTool) lookup( RepositoryTool.ROLE );
+            repositoryTool = lookup( RepositoryTool.class );
             localRepo = repositoryTool.findLocalRepositoryDirectory();
             System.out.println( "Local repository: " + localRepo );
         }
 
-        analyzer = (ProjectDependencyAnalyzer) lookup( ProjectDependencyAnalyzer.class.getName() );
+        analyzer = lookup( ProjectDependencyAnalyzer.class );
     }
 
     @Test

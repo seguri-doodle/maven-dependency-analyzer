@@ -24,14 +24,16 @@ import java.net.URL;
 import java.util.Set;
 import java.util.zip.ZipException;
 
-import org.codehaus.plexus.component.annotations.Component;
+import javax.inject.Named;
+import javax.inject.Singleton;
 
 /**
  * <p>DefaultClassAnalyzer class.</p>
  *
  * @author <a href="mailto:markhobson@gmail.com">Mark Hobson</a>
  */
-@Component( role = ClassAnalyzer.class )
+@Named
+@Singleton
 public class DefaultClassAnalyzer
     implements ClassAnalyzer
 {
